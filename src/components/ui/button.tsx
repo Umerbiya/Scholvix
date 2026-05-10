@@ -55,4 +55,6 @@ function Button({
   )
 }
 
+export interface ButtonProps extends ButtonPrimitive.Props, VariantProps<typeof buttonVariants> {}
+
 export { Button, buttonVariants }

@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { MapPin, Building, GraduationCap, CheckCircle2, Clock, DollarSign, ExternalLink } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export async function generateMetadata(
   props: { params: Promise<{ id: string }> }
@@ -157,14 +158,22 @@ export default async function ScholarshipDetailPage(
                   )}
                 </div>
 
-                <Button asChild size="lg" className="w-full h-14 text-lg font-bold tracking-tight rounded-full shadow-lg shadow-primary/30 relative overflow-hidden group hover:shadow-primary/50 transition-all">
-                  <a href={scholarship.url || "#"} target="_blank" rel="noopener noreferrer">
-                    <span className="relative z-10 flex items-center gap-2">
-                      Apply Now <ExternalLink className="w-5 h-5" />
-                    </span>
-                    <div className="absolute inset-0 bg-white/20 group-hover:translate-x-full transition-transform duration-500 -skew-x-12 -ml-8 w-24" />
-                  </a>
-                </Button>
+                <a 
+                  href={scholarship.url || "#"} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className={cn(
+                    "inline-flex shrink-0 items-center justify-center border border-transparent bg-clip-padding text-sm whitespace-nowrap outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50",
+                    "bg-primary text-primary-foreground [a]:hover:bg-primary/80",
+                    "h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+                    "w-full h-14 text-lg font-bold tracking-tight rounded-full shadow-lg shadow-primary/30 relative overflow-hidden group hover:shadow-primary/50 transition-all"
+                  )}
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    Apply Now <ExternalLink className="w-5 h-5" />
+                  </span>
+                  <div className="absolute inset-0 bg-white/20 group-hover:translate-x-full transition-transform duration-500 -skew-x-12 -ml-8 w-24" />
+                </a>
                 
                 <p className="text-xs text-center text-muted-foreground mt-4 font-medium">
                   You will be redirected to the official provider portal.

@@ -14,6 +14,7 @@ export interface Scholarship {
   university: string;
   imageUrl?: string;
   url?: string;
+  createdAt?: string;
 }
 
 export interface Guide {
@@ -22,6 +23,7 @@ export interface Guide {
   category: "Step-by-Step" | "Tips" | "Research" | string;
   content: string;
   featuredImage: string;
+  createdAt?: string;
 }
 
 export const getLatestScholarships = cache(async (count: number = 4): Promise<Scholarship[]> => {
