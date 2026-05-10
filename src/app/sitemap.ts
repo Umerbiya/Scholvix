@@ -17,7 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const scholarships = await getLatestScholarships(100);
     const scholarshipEntries = scholarships.map((scholarship) => ({
       url: `${baseUrl}/scholarships/${scholarship.id}`,
-      lastModified: new Date(scholarship.createdAt),
+      lastModified: scholarship.createdAt ? new Date(scholarship.createdAt) : new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.7,
     }));
