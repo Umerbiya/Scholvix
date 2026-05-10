@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Check if the user is authenticated and is the Admin
+    // Using the admin UID from Phase 3 (Replace with actual admin UID in production)
+    function isAdmin() {
+      return request.auth != null && request.auth.uid == 'ADMIN_UID_FROM_PHASE_3';
+    }
+
+    // Default rule for all documents
+    match /{document=**} {
+      // Public READ: Anyone can view scholarships and guides
+      allow read: if true;
+      
+      // Admin WRITE: Only the Admin can create, update, or delete records
+      allow write: if isAdmin();
+    }
+  }
+}
