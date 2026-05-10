@@ -15,31 +15,31 @@ const DESTINATIONS = [
 ];
 
 const TOP_5 = [
-  { 
+  {
     country: "United Kingdom",
     desc: "Home to some of the world's oldest and most prestigious universities. Offers a rich cultural history and a fast-track to a global career.",
     pros: ["1-Year Master's Programs", "2-Year Post-Study Work Visa", "Global Prestige"],
     cons: ["High Living Costs (London)", "Highly Competitive Job Market"]
   },
-  { 
+  {
     country: "United States",
     desc: "The largest hub for international students, boasting unparalleled research facilities and the highest concentration of top-ranked universities globally.",
     pros: ["Ivy League Excellence", "Massive STEM Opportunities", "Diverse Culture"],
     cons: ["Very High Tuition Fees", "Complex Visa Process"]
   },
-  { 
+  {
     country: "Canada",
     desc: "Known for its welcoming immigration policies, high quality of life, and affordable world-class education compared to its southern neighbor.",
     pros: ["Clear Path to Permanent Residency", "Safe & Multicultural", "Work While Studying"],
     cons: ["Harsh Winters", "High Taxes"]
   },
-  { 
+  {
     country: "Germany",
     desc: "The powerhouse of Europe, offering virtually free education at public universities and a massive demand for skilled engineering and tech graduates.",
     pros: ["No/Low Tuition Fees", "Strong Tech Economy", "Travel Across Schengen Area"],
     cons: ["German Language Required for Jobs", "Bureaucratic Processes"]
   },
-  { 
+  {
     country: "Australia",
     desc: "A destination combining world-class education with an incredible lifestyle. Perfect for students seeking sunshine and strong graduate employment outcomes.",
     pros: ["Excellent Weather & Lifestyle", "High Minimum Wage", "Long Post-Study Work Visas"],
@@ -74,7 +74,7 @@ export default function CountriesHubPage() {
           >
             <Globe2 className="w-4 h-4" /> Study Destinations
           </motion.div>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -82,7 +82,7 @@ export default function CountriesHubPage() {
           >
             Find Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Perfect Country</span>
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -94,7 +94,7 @@ export default function CountriesHubPage() {
       </section>
 
       {/* Magazine-Style Grid */}
-      <section className="container mx-auto px-4 py-16">
+      {/* <section className="container mx-auto px-4 py-16">
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -112,12 +112,10 @@ export default function CountriesHubPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
               
-              {/* Persistent Title */}
               <div className="absolute bottom-0 left-0 right-0 p-8 transform transition-transform duration-500 group-hover:-translate-y-32">
                 <h2 className="text-3xl font-black text-white tracking-tighter">{dest.title}</h2>
               </div>
 
-              {/* Hover Quick Facts Overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-8 pt-0 opacity-0 transform translate-y-8 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
                 <div className="space-y-3 border-t border-white/20 pt-4 mt-2">
                   <div className="flex items-center justify-between text-white/90">
@@ -137,7 +135,7 @@ export default function CountriesHubPage() {
             </motion.div>
           ))}
         </motion.div>
-      </section>
+      </section> */}
 
       {/* Top 5 Detailed Breakdown */}
       <section className="container mx-auto px-4 py-24">
@@ -148,7 +146,7 @@ export default function CountriesHubPage() {
 
         <div className="space-y-12">
           {TOP_5.map((item, index) => (
-            <motion.div 
+            <motion.div
               key={item.country}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -162,7 +160,7 @@ export default function CountriesHubPage() {
                   <h3 className="text-3xl font-black tracking-tighter text-foreground mb-4">{item.country}</h3>
                   <p className="text-muted-foreground font-medium leading-relaxed tracking-tight">{item.desc}</p>
                 </div>
-                
+
                 <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
                   {/* Pros */}
                   <div className="bg-emerald-50 dark:bg-emerald-950/20 rounded-2xl p-6 border border-emerald-100 dark:border-emerald-900/30">
@@ -177,7 +175,7 @@ export default function CountriesHubPage() {
                       ))}
                     </ul>
                   </div>
-                  
+
                   {/* Cons */}
                   <div className="bg-red-50 dark:bg-red-950/20 rounded-2xl p-6 border border-red-100 dark:border-red-900/30">
                     <h4 className="text-sm font-bold uppercase tracking-widest text-red-600 dark:text-red-400 mb-4 flex items-center gap-2">
