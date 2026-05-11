@@ -7,7 +7,7 @@ import { ArrowRight, Globe, TrendingUp, Users } from "lucide-react";
 export function Hero() {
   return (
     // Changed h-[90vh] to min-h-screen and adjusted padding to account for the stats bar
-    <section className="relative w-full min-h-screen lg:h-[90vh] flex flex-col justify-center overflow-hidden pt-20 pb-32 md:pb-0">
+    <section className="relative w-full min-h-screen lg:h-[90vh] flex flex-col justify-center overflow-hidden pb-32 md:pb-0">
 
       {/* Background Image - Changed z-index and added object-center */}
       <div className="absolute inset-0 z-0">

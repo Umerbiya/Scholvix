@@ -4,6 +4,8 @@ import { motion, Variants } from "framer-motion";
 import { ArrowRight, FileCheck, Globe, GraduationCap, Search } from "lucide-react";
 import Link from "next/link";
 import { Scholarship } from "@/lib/firebase/firestore";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -33,23 +35,37 @@ export function BentoGrid({ latest }: { latest: Scholarship[] }) {
           <div className="p-3 bg-primary/20 rounded-xl"><GraduationCap className="w-6 h-6 text-primary" /></div>
           <h2 className="text-2xl font-bold">Latest Scholarships</h2>
         </div>
-        <div className="flex flex-col gap-4 flex-1">
+        <div className="flex flex-col gap-3 flex-1 overflow-y-auto pr-2 custom-scrollbar">
           {latest.length > 0 ? latest.map((item) => (
-            <div key={item.id} className="p-4 rounded-xl border border-border/40 bg-background/60 hover:bg-muted/50 transition-colors">
-              <h3 className="font-semibold text-lg">{item.title}</h3>
-              <p className="text-sm text-muted-foreground">{item.university} • {item.country}</p>
-              <div className="flex justify-between items-center mt-3">
-                <span className="text-sm font-medium text-primary">{item.amount}</span>
-                <span className="text-xs text-muted-foreground">Deadline: {new Date(item.deadline).toLocaleDateString()}</span>
+            <Link 
+              key={item.id} 
+              href={`/scholarships/${item.id}`}
+              className="p-4 rounded-2xl border border-border/40 bg-background/60 hover:bg-muted/50 transition-all hover:border-primary/30 group/item"
+            >
+              <h3 className="font-bold text-base line-clamp-1 group-hover/item:text-primary transition-colors">{item.title}</h3>
+              <p className="text-xs text-muted-foreground mt-1 font-medium">{item.provider || item.university} • {item.country}</p>
+              <div className="flex justify-between items-center mt-3 pt-3 border-t border-border/20">
+                <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">{item.amount}</span>
+                <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-tight">
+                  {new Date(item.deadline).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
+                </span>
               </div>
-            </div>
+            </Link>
           )) : (
             <p className="text-muted-foreground text-sm">No scholarships found. We are fetching the latest opportunities.</p>
           )}
         </div>
-        <Link href="/scholarships" className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
-          View all opportunities <ArrowRight className="w-4 h-4" />
-        </Link>
+        <div className="mt-6">
+          <Link 
+            href="/scholarships" 
+            className={cn(
+              buttonVariants({ variant: "outline" }),
+              "w-full rounded-xl gap-2 font-bold py-6 border-primary/20 hover:bg-primary/5 hover:border-primary/50 text-primary transition-all shadow-sm"
+            )}
+          >
+            View all opportunities <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
       </motion.div>
 
       {/* Tile 2: Top Study Destinations */}

@@ -28,7 +28,7 @@ export interface Guide {
 
 export const getLatestScholarships = cache(async (count: number = 4): Promise<Scholarship[]> => {
   try {
-    const q = query(collection(db, "scholarships"), orderBy("deadline", "asc"), limit(count));
+    const q = query(collection(db, "scholarships"), orderBy("createdAt", "desc"), limit(count));
     const snapshot = await getDocs(q);
     
     return snapshot.docs.map(doc => ({

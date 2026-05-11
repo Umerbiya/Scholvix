@@ -8,24 +8,24 @@ const REGIONS = [
   {
     name: "North America",
     universities: [
-      { id: "mit", name: "Massachusetts Institute of Technology", rank: "QS #1", location: "Cambridge, USA", image: "https://images.unsplash.com/photo-1550136513-548af4445338?auto=format&fit=crop&q=80&w=800", blurb: "The undisputed global leader in engineering, technology, and applied sciences." },
-      { id: "stanford", name: "Stanford University", rank: "QS #3", location: "Stanford, USA", image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&q=80&w=800", blurb: "The heartbeat of Silicon Valley, producing more unicorn founders than any other institution." },
-      { id: "toronto", name: "University of Toronto", rank: "QS #21", location: "Toronto, Canada", image: "https://images.unsplash.com/photo-1606240212371-bdc28ee45cd5?auto=format&fit=crop&q=80&w=800", blurb: "Canada's top research university with massive funding in AI and healthcare." }
+      { id: "mit", name: "Massachusetts Institute of Technology", rank: "QS #1", location: "Cambridge, USA", image: "https://i.ytimg.com/vi/r7R8ewU1Wqc/maxresdefault.jpg", blurb: "The undisputed global leader in engineering, technology, and applied sciences." },
+      { id: "stanford", name: "Stanford University", rank: "QS #3", location: "Stanford, USA", image: "https://www.ivywise.com/wp-content/uploads/2025/06/stanford-university.jpeg", blurb: "The heartbeat of Silicon Valley, producing more unicorn founders than any other institution." },
+      { id: "toronto", name: "University of Toronto", rank: "QS #21", location: "Toronto, Canada", image: "https://d3d0lqu00lnqvz.cloudfront.net/media/media/UofT_cmh2315fl.jpg", blurb: "Canada's top research university with massive funding in AI and healthcare." }
     ]
   },
   {
     name: "Europe",
     universities: [
-      { id: "oxford", name: "University of Oxford", rank: "QS #2", location: "Oxford, UK", image: "https://images.unsplash.com/photo-1521123845561-1406d86fb837?auto=format&fit=crop&q=80&w=800", blurb: "A millennium of academic excellence with the unique collegiate tutorial system." },
-      { id: "eth", name: "ETH Zurich", rank: "QS #8", location: "Zurich, Switzerland", image: "https://images.unsplash.com/photo-1588653920364-7e86e580eec9?auto=format&fit=crop&q=80&w=800", blurb: "Continental Europe's finest tech university, where Einstein studied." },
-      { id: "tum", name: "Technical University of Munich", rank: "QS #37", location: "Munich, Germany", image: "https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&fit=crop&q=80&w=800", blurb: "Germany's leading technical university with strong industry ties to BMW and Siemens." }
+      { id: "oxford", name: "University of Oxford", rank: "QS #2", location: "Oxford, UK", image: "https://accommodationforstudents.com/cdn-cgi/image/f=auto,q=85,w=1200/https://images.accommodationforstudents.com/website/university-guides/gb/university-of-oxford/uni.jpg", blurb: "A millennium of academic excellence with the unique collegiate tutorial system." },
+      { id: "eth", name: "ETH Zurich", rank: "QS #8", location: "Zurich, Switzerland", image: "https://ethz.ch/en/news-and-events/eth-news/news/2023/03/qs-world-university-rankings-eth-top-in-16-subjects/_jcr_content/pageimages/imageCarousel.imageformat.lightbox.1369818531.jpg", blurb: "Continental Europe's finest tech university, where Einstein studied." },
+      { id: "tum", name: "Technical University of Munich", rank: "QS #37", location: "Munich, Germany", image: "https://www.timeshighereducation.com/cms-academic/sites/default/files/migrated_institution_images/header_image_31.jpg", blurb: "Germany's leading technical university with strong industry ties to BMW and Siemens." }
     ]
   },
   {
     name: "Asia-Pacific",
     universities: [
       { id: "nus", name: "National University of Singapore", rank: "QS #8", location: "Singapore", image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=800", blurb: "Asia's flagship university offering a global approach to education and research." },
-      { id: "tsinghua", name: "Tsinghua University", rank: "QS #14", location: "Beijing, China", image: "https://images.unsplash.com/photo-1598440947619-2ce5769a5a10?auto=format&fit=crop&q=80&w=800", blurb: "China's premier institution, deeply embedded in the nation's technological and political advancement." },
+      { id: "tsinghua", name: "Tsinghua University", rank: "QS #14", location: "Beijing, China", image: "https://obuchenievkitae.ru/wp-content/uploads/2021/07/tsinghua-uni-background-mobile-JPG.jpg", blurb: "China's premier institution, deeply embedded in the nation's technological and political advancement." },
       { id: "melbourne", name: "University of Melbourne", rank: "QS #33", location: "Melbourne, Australia", image: "https://images.unsplash.com/photo-1613896527026-f195d5c818ed?auto=format&fit=crop&q=80&w=800", blurb: "Australia's top-ranked university located in one of the world's most livable cities." }
     ]
   }
@@ -58,7 +58,7 @@ export default function UniversitiesHubPage() {
           >
             <Building2 className="w-4 h-4" /> Elite Institutions
           </motion.div>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -66,7 +66,7 @@ export default function UniversitiesHubPage() {
           >
             World-Class <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Academia</span>
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -81,7 +81,7 @@ export default function UniversitiesHubPage() {
       <div className="container mx-auto px-4 space-y-24">
         {REGIONS.map((region, rIdx) => (
           <section key={region.name}>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -91,7 +91,7 @@ export default function UniversitiesHubPage() {
               <div className="h-px bg-border flex-1 ml-4" />
             </motion.div>
 
-            <motion.div 
+            <motion.div
               variants={containerVariants}
               initial="hidden"
               whileInView="show"
@@ -99,20 +99,20 @@ export default function UniversitiesHubPage() {
               className="grid grid-cols-1 lg:grid-cols-3 gap-8"
             >
               {region.universities.map((uni) => (
-                <motion.div 
-                  key={uni.id} 
+                <motion.div
+                  key={uni.id}
                   variants={cardVariants}
                   className="group bg-white/60 dark:bg-card/40 backdrop-blur-xl border border-border/50 rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col"
                 >
                   <div className="relative h-48 w-full overflow-hidden">
-                    <Image 
-                      src={uni.image} 
-                      alt={uni.name} 
-                      fill 
+                    <Image
+                      src={uni.image}
+                      alt={uni.name}
+                      fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                    
+
                     {/* Ranking Badge */}
                     <div className="absolute top-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg border border-white/20">
                       <Award className="w-3.5 h-3.5 text-yellow-500" />
