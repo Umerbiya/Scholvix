@@ -10,10 +10,10 @@ export function Footer() {
     <footer className="bg-white dark:bg-[#0a0a0a] border-t border-border/40 relative overflow-hidden">
       {/* Decorative Blur */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
-      
+
       <div className="container mx-auto px-4 py-24 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
-          
+
           {/* Brand & Newsletter Column (Span 4) */}
           <div className="lg:col-span-4 space-y-8">
             <Link href="/" className="flex items-center gap-2">
@@ -29,15 +29,15 @@ export function Footer() {
             <p className="text-muted-foreground font-medium text-sm leading-relaxed max-w-sm">
               The world's most advanced platform for discovering, tracking, and securing fully-funded global scholarships.
             </p>
-            
+
             <div className="bg-slate-50 dark:bg-card/40 backdrop-blur-xl border border-border/50 p-4 rounded-2xl shadow-sm">
               <p className="text-xs font-bold uppercase tracking-widest text-foreground mb-3 flex items-center gap-2">
                 Join the Elite Newsletter
               </p>
               <div className="flex gap-2">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email" 
+                <input
+                  type="email"
+                  placeholder="Enter your email"
                   className="flex-1 bg-background/50 border border-border/50 rounded-xl px-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all"
                 />
                 <Button className="rounded-xl shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all" onClick={() => console.log("Newsletter signed up!")}>
@@ -81,8 +81,9 @@ export function Footer() {
         <div className="mt-24 pt-8 border-t border-border/40 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-sm text-muted-foreground font-medium">
             © {new Date().getFullYear()} Scholvix. All rights reserved.
+            Scholvix®, a product of OMAR Technologies Pvt. Ltd.
           </div>
-          
+
           <div className="flex items-center gap-6">
             <Link href="/legal/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium">Privacy Policy</Link>
             <Link href="/legal/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium">Terms of Service</Link>
