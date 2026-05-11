@@ -50,9 +50,9 @@ export function Navbar() {
           <Button className="hidden md:inline-flex bg-primary text-primary-foreground shadow-lg hover:bg-primary/90 transition-all active:scale-95">
             Apply Now
           </Button>
-          <Button 
-            variant="ghost" 
-            size="icon" 
+          <Button
+            variant="ghost"
+            size="icon"
             className="lg:hidden"
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -71,18 +71,20 @@ export function Navbar() {
           >
             <nav className="container mx-auto px-4 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
-                <Link 
-                  key={link.href} 
-                  href={link.href} 
+                <Link
+                  key={link.href}
+                  href={link.href}
                   className="text-lg font-bold tracking-tight text-muted-foreground hover:text-primary transition-colors py-2"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
                 </Link>
               ))}
-              <Button className="w-full mt-4 bg-primary text-primary-foreground shadow-lg">
-                Apply Now
-              </Button>
+              <Link href="/scholarships" className="w-full">
+                <Button className="w-full mt-4 bg-primary text-primary-foreground shadow-lg">
+                  Apply Now
+                </Button>
+              </Link>
             </nav>
           </motion.div>
         )}
