@@ -1,12 +1,36 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles, Heart, Globe, ShieldCheck } from "lucide-react";
+import { Sparkles, Heart, Globe, ShieldCheck, Users } from "lucide-react";
 import Image from "next/image";
+
+const teamMembers = [
+  {
+    name: "Iman U",
+    role: "COO & Brand Strategist",
+    focus:
+      "Business operations, brand positioning, and user growth. Iman oversees the day-to-day organizational workflows and ensures that the platform’s vision aligns with market demands, focusing on delivering a premium experience to every client.",
+    image: "", // Placeholder female professional
+  },
+  {
+    name: "Team Member 2",
+    role: "Business Development & Customer Success",
+    focus:
+      "Client relations, strategic partnerships, and market expansion. They lead the effort in bringing Scholvix to new markets and ensure that our partners and users have the operational support they need to succeed.",
+    image: "", // Placeholder male professional
+  },
+  {
+    name: "Umer Biya",
+    role: "Lead Software Developer & System Architect",
+    focus:
+      "Core engineering, SaaS architecture, and technical innovation. Umer is responsible for the full-stack development of the Scholvix platform, ensuring high performance, security, and the seamless integration of modern web technologies.",
+    image: "", // Placeholder male professional
+  },
+];
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-background pb-32">
+    <div className="min-h-screen bg-slate-50 dark:bg-background pb-32 overflow-hidden">
       {/* Hero Section */}
       <section className="relative w-full py-32 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-primary/5 dark:bg-primary/10 rounded-b-[4rem]" />
@@ -24,7 +48,7 @@ export default function AboutPage() {
               Always 100% Free.
             </h1>
             <p className="text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl mx-auto">
-              Scholvix was created with one simple belief: financial constraints should never stand in the way of a brilliant mind. 
+              Scholvix was created with one simple belief: financial constraints should never stand in the way of a brilliant mind.
             </p>
           </motion.div>
         </div>
@@ -33,7 +57,7 @@ export default function AboutPage() {
       {/* Content Section */}
       <section className="container mx-auto px-4 pt-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -45,7 +69,7 @@ export default function AboutPage() {
                 Navigating the world of international scholarships is incredibly complex. Between scattered deadlines, hidden requirements, and predatory consulting agencies charging thousands of dollars just for basic advice, the system is fundamentally broken.
               </p>
               <p>
-                We built Scholvix to fix this. We are a passionate team dedicated to organizing the world's fully-funded opportunities into one sleek, highly intuitive platform. 
+                We built Scholvix to fix this. We are a passionate team dedicated to organizing the world's fully-funded opportunities into one sleek, highly intuitive platform.
               </p>
               <p className="font-bold text-foreground">
                 We don't charge subscription fees. We don't hide premium features behind paywalls. Every guide, timeline, and scholarship detail on this platform is completely free to access.
@@ -53,16 +77,16 @@ export default function AboutPage() {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="relative h-[500px] rounded-[3rem] overflow-hidden shadow-2xl border border-border/50"
           >
-            <Image 
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200" 
-              alt="Students collaborating" 
-              fill 
+            <Image
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200"
+              alt="Students collaborating"
+              fill
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -83,7 +107,7 @@ export default function AboutPage() {
             { icon: Globe, title: "Global Access", desc: "We source opportunities across the globe, ensuring there are paths for students from every nationality." },
             { icon: ShieldCheck, title: "No Paywalls", desc: "Access to life-changing educational opportunities should be a human right, not a luxury." }
           ].map((item, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -96,6 +120,64 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">{item.title}</h3>
               <p className="text-muted-foreground font-medium leading-relaxed">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="container mx-auto px-4 pt-32">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center justify-center p-2 px-4 rounded-full bg-primary/10 text-primary font-semibold mb-4 text-sm">
+            <Users className="w-4 h-4 mr-2" />
+            Our Team
+          </div>
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+            The Minds Behind Scholvix
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            A dedicated group of innovators working to make global education accessible for everyone.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {teamMembers.map((member, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.15 }}
+              className="group relative bg-card/40 backdrop-blur-sm border border-border/50 rounded-[2rem] p-6 hover:shadow-2xl hover:border-primary/30 transition-all duration-500 flex flex-col items-center text-center"
+            >
+              {/* Avatar Container */}
+              <div className="relative w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-background shadow-lg group-hover:scale-105 transition-transform duration-500 flex items-center justify-center bg-primary/10">
+                {member.image ? (
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <span className="text-5xl font-extrabold text-primary select-none">
+                    {member.name ? member.name.charAt(0).toUpperCase() : "?"}
+                  </span>
+                )}
+              </div>
+
+              <h3 className="text-2xl font-bold mb-1">{member.name}</h3>
+              <p className="text-primary font-medium mb-4 text-sm uppercase tracking-wide">
+                {member.role}
+              </p>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {member.focus}
+              </p>
             </motion.div>
           ))}
         </div>
