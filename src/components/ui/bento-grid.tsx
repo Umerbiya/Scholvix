@@ -30,17 +30,17 @@ export function BentoGrid({ latest }: { latest: Scholarship[] }) {
     >
       {/* Tile 1: Latest Scholarships */}
       <motion.div variants={itemVariants} className="md:col-span-2 lg:col-span-2 row-span-2 rounded-3xl border border-border/50 bg-card/50 backdrop-blur-sm p-8 shadow-sm flex flex-col relative overflow-hidden group h-[500px] md:h-auto">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        <div className="flex items-center gap-3 mb-6">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+        <div className="flex items-center gap-3 mb-6 relative z-10">
           <div className="p-3 bg-primary/20 rounded-xl"><GraduationCap className="w-6 h-6 text-primary" /></div>
           <h2 className="text-2xl font-bold">Latest Scholarships</h2>
         </div>
-        <div className="flex flex-col gap-3 flex-1 overflow-y-auto pr-2 custom-scrollbar">
+        <div className="flex flex-col gap-3 flex-1 overflow-y-auto pr-2 custom-scrollbar relative z-10">
           {latest.length > 0 ? latest.map((item) => (
             <Link 
               key={item.id} 
               href={`/scholarships/${item.id}`}
-              className="p-4 rounded-2xl border border-border/40 bg-background/60 hover:bg-muted/50 transition-all hover:border-primary/30 group/item"
+              className="p-4 rounded-2xl border border-border/40 bg-background/60 hover:bg-muted/50 transition-all hover:border-primary/30 group/item relative z-10"
             >
               <h3 className="font-bold text-base line-clamp-1 group-hover/item:text-primary transition-colors">{item.title}</h3>
               <p className="text-xs text-muted-foreground mt-1 font-medium">{item.provider || item.university} • {item.country}</p>
@@ -55,7 +55,7 @@ export function BentoGrid({ latest }: { latest: Scholarship[] }) {
             <p className="text-muted-foreground text-sm">No scholarships found. We are fetching the latest opportunities.</p>
           )}
         </div>
-        <div className="mt-6">
+        <div className="mt-6 relative z-10">
           <Link 
             href="/scholarships" 
             className={cn(

@@ -12,10 +12,10 @@ export function ScholarshipCard({ item }: { item: Scholarship }) {
   const categoryBadge = item.eligibilityTags?.[0] || "Merit-Based";
 
   return (
-    <Link href={`/scholarships/${item.id}`} className="block outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-[2rem]">
-      <div className="group relative flex flex-col md:flex-row gap-6 p-6 rounded-[2rem] border border-border/40 bg-card/40 backdrop-blur-sm hover:bg-card/60 transition-all duration-500 shadow-sm hover:shadow-xl hover:border-primary/30 overflow-hidden cursor-pointer">
+    <Link href={`/scholarships/${item.id}`} className="block outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-[2rem] h-full">
+      <div className="group relative flex flex-col gap-6 p-6 rounded-[2rem] border border-border/40 bg-card/40 backdrop-blur-sm hover:bg-card/60 transition-all duration-500 shadow-sm hover:shadow-xl hover:border-[#7c3aed]/30 overflow-hidden cursor-pointer h-full">
       {/* Featured Image with Zoom */}
-      <div className="relative w-full md:w-56 h-48 md:h-auto shrink-0 rounded-[1.5rem] overflow-hidden">
+      <div className="relative w-full h-64 shrink-0 rounded-[1.5rem] overflow-hidden">
         <Image
           src={imageUrl}
           alt={item.title}
@@ -30,14 +30,21 @@ export function ScholarshipCard({ item }: { item: Scholarship }) {
 
       {/* Content */}
       <div className="flex-1 flex flex-col justify-center">
-        <h3 className="text-2xl font-extrabold tracking-tight mb-3 group-hover:text-primary transition-colors">
+        <h3 className="text-2xl font-extrabold tracking-tight mb-3 group-hover:text-[#7c3aed] transition-colors line-clamp-2">
           {item.title}
         </h3>
         
+        {item.description && (
+          <div 
+            className="text-sm text-muted-foreground mb-4 line-clamp-3"
+            dangerouslySetInnerHTML={{ __html: item.description }}
+          />
+        )}
+        
         <div className="flex flex-wrap items-center gap-4 text-sm font-medium text-muted-foreground mb-4">
-          <span className="flex items-center gap-1.5"><Building className="w-4 h-4 text-primary/70" /> {item.provider}</span>
-          <span className="flex items-center gap-1.5"><GraduationCap className="w-4 h-4 text-primary/70" /> {item.university}</span>
-          <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-primary/70" /> {item.country}</span>
+          <span className="flex items-center gap-1.5"><Building className="w-4 h-4 text-[#7c3aed]/70" /> {item.provider}</span>
+          <span className="flex items-center gap-1.5"><GraduationCap className="w-4 h-4 text-[#7c3aed]/70" /> {item.university}</span>
+          <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-[#7c3aed]/70" /> {item.country}</span>
         </div>
         
         <div className="flex flex-wrap gap-2 mt-auto">
@@ -50,12 +57,12 @@ export function ScholarshipCard({ item }: { item: Scholarship }) {
       </div>
 
       {/* Meta info (Amount, Deadline) */}
-      <div className="flex flex-row md:flex-col items-center md:items-end justify-between border-t md:border-t-0 md:border-l border-border/40 pt-4 md:pt-0 md:pl-6 shrink-0 min-w-[140px]">
-        <div className="text-left md:text-right w-full mb-4">
+      <div className="flex flex-row items-center justify-between border-t border-border/40 pt-4 shrink-0">
+        <div className="text-left w-full mb-0">
           <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1">Amount</p>
           <p className="text-xl font-black tracking-tight text-emerald-500">{item.amount}</p>
         </div>
-        <div className="text-left md:text-right w-full">
+        <div className="text-right w-full">
           <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1">Deadline</p>
           <p className="text-sm font-bold tracking-tight">{new Date(item.deadline).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}</p>
         </div>

@@ -14,7 +14,7 @@ export default async function ScholarshipsPage() {
   const scholarships = await getLatestScholarships(10);
 
   return (
-    <div className="container mx-auto px-4 py-16 max-w-5xl">
+    <div className="container mx-auto px-4 pt-32 pb-16 max-w-7xl">
       <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">Browse Scholarships</h1>
       <p className="text-muted-foreground text-lg mb-8">
         Filter through thousands of opportunities to find the perfect fit.
@@ -22,7 +22,7 @@ export default async function ScholarshipsPage() {
 
       <QuickFilter />
 
-      <div className="space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {scholarships.length > 0 ? scholarships.map((item) => (
           <ScholarshipCard key={item.id} item={item} />
         )) : (

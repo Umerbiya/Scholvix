@@ -10,21 +10,21 @@ const teamMembers = [
     role: "COO & Brand Strategist",
     focus:
       "Business operations, brand positioning, and user growth. Iman oversees the day-to-day organizational workflows and ensures that the platform’s vision aligns with market demands, focusing on delivering a premium experience to every client.",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400",
+    image: "", // Placeholder female professional
+  },
+  {
+    name: "Team Member 2",
+    role: "Business Development & Customer Success",
+    focus:
+      "Client relations, strategic partnerships, and market expansion. They lead the effort in bringing Scholvix to new markets and ensure that our partners and users have the operational support they need to succeed.",
+    image: "", // Placeholder male professional
   },
   {
     name: "Umer Biya",
-    role: "Lead Software Architect",
+    role: "Lead Software Developer & System Architect",
     focus:
-      "Core engineering and technical innovation. Umer is responsible for the full-stack development of the Scholvix platform, ensuring high performance, security, and the seamless integration of modern web technologies.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400",
-  },
-  {
-    name: "Sarah Chen",
-    role: "Partnerships Lead",
-    focus:
-      "Client relations and strategic growth. Sarah leads the effort in bringing Scholvix to new markets and ensure that our partners and users have the operational support they need to succeed.",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400",
+      "Core engineering, SaaS architecture, and technical innovation. Umer is responsible for the full-stack development of the Scholvix platform, ensuring high performance, security, and the seamless integration of modern web technologies.",
+    image: "", // Placeholder male professional
   },
 ];
 
