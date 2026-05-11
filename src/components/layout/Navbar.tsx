@@ -1,13 +1,24 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { GraduationCap, Menu, Search } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { GraduationCap, Menu, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { GlobalSearch } from "./GlobalSearch";
 
 export function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navLinks = [
+    { href: "/scholarships", label: "Scholarships" },
+    { href: "/guides", label: "Guides" },
+    { href: "/countries", label: "Countries" },
+    { href: "/universities", label: "Universities" },
+    { href: "/research", label: "Research" },
+  ];
+
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -23,11 +34,11 @@ export function Navbar() {
           </Link>
 
           <nav className="hidden lg:flex gap-6 text-sm font-bold tracking-tight text-muted-foreground">
-            <Link href="/scholarships" className="hover:text-foreground transition-colors">Scholarships</Link>
-            <Link href="/guides" className="hover:text-foreground transition-colors">Guides</Link>
-            <Link href="/countries" className="hover:text-foreground transition-colors">Countries</Link>
-            <Link href="/universities" className="hover:text-foreground transition-colors">Universities</Link>
-            <Link href="/research" className="hover:text-foreground transition-colors">Research</Link>
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="hover:text-foreground transition-colors">
+                {link.label}
+              </Link>
+            ))}
           </nav>
         </div>
 
@@ -39,11 +50,43 @@ export function Navbar() {
           <Button className="hidden md:inline-flex bg-primary text-primary-foreground shadow-lg hover:bg-primary/90 transition-all active:scale-95">
             Apply Now
           </Button>
-          <Button variant="ghost" size="icon" className="md:hidden">
-            <Menu className="h-5 w-5" />
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="lg:hidden"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
       </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden border-t border-border/40 bg-background/95 backdrop-blur-md overflow-hidden"
+          >
+            <nav className="container mx-auto px-4 py-6 flex flex-col gap-4">
+              {navLinks.map((link) => (
+                <Link 
+                  key={link.href} 
+                  href={link.href} 
+                  className="text-lg font-bold tracking-tight text-muted-foreground hover:text-primary transition-colors py-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Button className="w-full mt-4 bg-primary text-primary-foreground shadow-lg">
+                Apply Now
+              </Button>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }
