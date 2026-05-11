@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Camera, Briefcase, Globe, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -16,9 +17,13 @@ export function Footer() {
           {/* Brand & Newsletter Column (Span 4) */}
           <div className="lg:col-span-4 space-y-8">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center shadow-lg shadow-primary/20">
-                <Sparkles className="w-5 h-5 text-white" />
-              </div>
+              <Image
+                src="/logo.png"
+                alt="Scholvix Logo"
+                width={32}
+                height={32}
+                className="object-contain"
+              />
               <span className="text-2xl font-black tracking-tighter text-foreground">Scholvix.</span>
             </Link>
             <p className="text-muted-foreground font-medium text-sm leading-relaxed max-w-sm">

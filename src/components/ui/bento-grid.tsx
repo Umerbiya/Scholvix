@@ -29,7 +29,7 @@ export function BentoGrid({ latest }: { latest: Scholarship[] }) {
       className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto px-4 py-12"
     >
       {/* Tile 1: Latest Scholarships */}
-      <motion.div variants={itemVariants} className="md:col-span-2 lg:col-span-2 row-span-2 rounded-3xl border border-border/50 bg-card/50 backdrop-blur-sm p-8 shadow-sm flex flex-col relative overflow-hidden group">
+      <motion.div variants={itemVariants} className="md:col-span-2 lg:col-span-2 row-span-2 rounded-3xl border border-border/50 bg-card/50 backdrop-blur-sm p-8 shadow-sm flex flex-col relative overflow-hidden group h-[500px] md:h-auto">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <div className="flex items-center gap-3 mb-6">
           <div className="p-3 bg-primary/20 rounded-xl"><GraduationCap className="w-6 h-6 text-primary" /></div>

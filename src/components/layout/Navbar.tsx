@@ -38,11 +38,11 @@ export function Navbar() {
       className={cn(
         "fixed top-0 z-50 w-full transition-all duration-300",
         scrolled
-          ? "border-b border-border/40 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 py-3"
-          : "bg-transparent border-transparent py-5"
+          ? "border-b border-border/40 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 py-2 md:py-3"
+          : "bg-transparent border-transparent py-4 md:py-5"
       )}
     >
-      <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto flex h-14 md:h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
             <Image
@@ -50,7 +50,7 @@ export function Navbar() {
               alt="Scholvix Logo"
               width={32}
               height={32}
-              className="w-16 h-16 object-contain"
+              className="w-8 h-8 object-contain"
             />
             <span className="text-xl font-bold tracking-tight">Scholvix</span>
           </Link>
