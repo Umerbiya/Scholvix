@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { GraduationCap, Menu, Search, X } from "lucide-react";
+import { Menu, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { GlobalSearch } from "./GlobalSearch";
@@ -36,15 +37,21 @@ export function Navbar() {
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
       className={cn(
         "fixed top-0 z-50 w-full transition-all duration-300",
-        scrolled 
-          ? "border-b border-border/40 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 py-3" 
+        scrolled
+          ? "border-b border-border/40 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 py-3"
           : "bg-transparent border-transparent py-5"
       )}
     >
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
-            <GraduationCap className="h-6 w-6 text-primary" />
+            <Image
+              src="/logo.png"
+              alt="Scholvix Logo"
+              width={32}
+              height={32}
+              className="w-16 h-16 object-contain"
+            />
             <span className="text-xl font-bold tracking-tight">Scholvix</span>
           </Link>
 
